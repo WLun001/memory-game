@@ -75,6 +75,14 @@
                                     <action selector="startGameBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZeQ-Sv-hjG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2p-v5-ggE">
+                                <rect key="frame" x="59" y="407" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Give Up"/>
+                                <connections>
+                                    <action selector="giveUpBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fen-2K-9Zh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
