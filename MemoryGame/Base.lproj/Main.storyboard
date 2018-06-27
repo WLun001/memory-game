@@ -88,14 +88,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="wordLabel1" destination="VcQ-kJ-1ZX" id="YkU-Jt-eTH"/>
-                        <outlet property="wordLabel2" destination="jzk-Zj-Zxf" id="R3U-DP-crw"/>
-                        <outlet property="wordLabel3" destination="TgO-px-F1B" id="JYb-jf-fcd"/>
-                        <outlet property="wordLabel4" destination="2WV-Dc-fiX" id="z5R-DP-XaK"/>
-                        <outlet property="wordLabel5" destination="gHW-Fa-FaN" id="e9D-op-FRm"/>
-                        <outlet property="wordLabel6" destination="8Va-b2-XtC" id="6zt-Mz-KhL"/>
-                        <outlet property="wordLabel7" destination="0dB-x1-huF" id="dfO-pw-0ql"/>
                         <outletCollection property="labels" destination="VcQ-kJ-1ZX" collectionClass="NSMutableArray" id="63N-TG-ezx"/>
+                        <outletCollection property="labels" destination="jzk-Zj-Zxf" collectionClass="NSMutableArray" id="btZ-uk-bV7"/>
+                        <outletCollection property="labels" destination="TgO-px-F1B" collectionClass="NSMutableArray" id="xVg-ip-rYL"/>
+                        <outletCollection property="labels" destination="2WV-Dc-fiX" collectionClass="NSMutableArray" id="dVN-yN-zrl"/>
+                        <outletCollection property="labels" destination="gHW-Fa-FaN" collectionClass="NSMutableArray" id="Wxw-Oa-nh1"/>
+                        <outletCollection property="labels" destination="8Va-b2-XtC" collectionClass="NSMutableArray" id="XDt-nx-YmO"/>
+                        <outletCollection property="labels" destination="0dB-x1-huF" collectionClass="NSMutableArray" id="aMg-hy-Ntv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
