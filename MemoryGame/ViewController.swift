@@ -40,6 +40,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func startGameBtnPressed(_ sender: UIButton) {
+        for label in labels {
+            label.isHidden = true
+        }
+    }
     
     func initLabel() {
         for label in labels {
