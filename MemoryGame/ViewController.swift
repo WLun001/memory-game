@@ -27,11 +27,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func startGameBtnPressed(_ sender: UIButton) {
-        changeLabelToHidden(hidden: true)
+        changeLabelHiddenStatus(hidden: true)
     }
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
-        changeLabelToHidden(hidden: false)
+        changeLabelHiddenStatus(hidden: false)
     }
     
     func initLabel() {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func changeLabelToHidden(hidden: Bool) {
+    func changeLabelHiddenStatus(hidden: Bool) {
         for label in labels {
             label.isHidden = hidden
         }
