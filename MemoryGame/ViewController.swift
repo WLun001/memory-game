@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var labels: [UILabel]!
+    @IBOutlet var wordLabelsCollection: [UILabel]!
+    @IBOutlet var answerTextFieldsCollection: [UITextField]!
     
+    private let LABEL_NUM = 7
     private let words = Words().words
     private var counter = 0
 
@@ -38,16 +40,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
+        checkAnswer()
     }
     func initLabel() {
-        for label in labels {
+        for label in wordLabelsCollection {
             label.text = words[counter]
             counter += 1
         }
     }
     
+    func checkAnswer() {
+        print("counter \(counter)")
+        var currentWordIndex = counter - LABEL_NUM
+        print("current index \(currentWordIndex)")
+        for textField in answerTextFieldsCollection {
+            if textField.text == words[currentWordIndex] {
+                textField.textColor = UIColor.green
+            } else {
+                textField.textColor = UIColor.red
+            }
+            currentWordIndex += 1
+            
+        }
+    }
+    
     func changeLabelHiddenStatus(hidden: Bool) {
-        for label in labels {
+        for label in wordLabelsCollection {
             label.isHidden = hidden
         }
     }
