@@ -34,6 +34,11 @@ class ViewController: UIViewController {
         changeLabelHiddenStatus(hidden: false)
     }
     
+    @IBAction func newGameBtnPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
+    }
     func initLabel() {
         for label in labels {
             label.text = words[counter]
