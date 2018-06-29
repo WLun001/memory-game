@@ -12,9 +12,9 @@ class ViewController: UIViewController {
 
     @IBOutlet var wordLabelsCollection: [UILabel]!
     @IBOutlet var answerTextFieldsCollection: [UITextField]!
-    
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var nextQuestionBtn: UIButton!
+    
     private let LABEL_NUM = 7
     private let words = Words().words
     private var counter = 0
@@ -33,25 +33,31 @@ class ViewController: UIViewController {
     @IBAction func startGameBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: true)
         startGameButton.isHidden = true
+        changeTextFieldEnableStatus(enable: true)
     }
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: false)
+        checkAnswer()
+        changeTextFieldEnableStatus(enable: false)
     }
     
     @IBAction func newGameBtnPressed(_ sender: UIButton) {
         initLabels()
         resetTextFields()
         startGameButton.isHidden = false
+        changeTextFieldEnableStatus(enable: false)
     }
     
     @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
         checkAnswer()
+        changeTextFieldEnableStatus(enable: false)
         nextQuestionBtn.isHidden = false
     }
     @IBAction func nextQuestionBtnPressed(_ sender: UIButton) {
     }
     func initLabels() {
+        counter = 0
         for label in wordLabelsCollection {
             label.text = words[counter]
             counter += 1
@@ -62,6 +68,12 @@ class ViewController: UIViewController {
         for textField in answerTextFieldsCollection {
             textField.textColor = UIColor.black
             textField.backgroundColor = UIColor.white
+        }
+    }
+    
+    func changeTextFieldEnableStatus(enable: Bool) {
+        for textField in answerTextFieldsCollection {
+            textField.isEnabled = enable
         }
     }
     
