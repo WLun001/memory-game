@@ -66,6 +66,7 @@ class ViewController: UIViewController {
     
     func resetTextFields() {
         for textField in answerTextFieldsCollection {
+            textField.text = ""
             textField.textColor = UIColor.black
             textField.backgroundColor = UIColor.white
         }
