@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var wordLabelsCollection: [UILabel]!
     @IBOutlet var answerTextFieldsCollection: [UITextField]!
     
+    @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var nextQuestionBtn: UIButton!
     private let LABEL_NUM = 7
     private let words = Words().words
     private var counter = 0
@@ -21,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        initLabel()
+        initLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
     }
     @IBAction func startGameBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: true)
+        startGameButton.isHidden = true
     }
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
@@ -37,15 +40,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func newGameBtnPressed(_ sender: UIButton) {
+        initLabels()
+        resetTextFields()
+        startGameButton.isHidden = false
     }
     
     @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
         checkAnswer()
+        nextQuestionBtn.isHidden = false
     }
-    func initLabel() {
+    @IBAction func nextQuestionBtnPressed(_ sender: UIButton) {
+    }
+    func initLabels() {
         for label in wordLabelsCollection {
             label.text = words[counter]
             counter += 1
+        }
+    }
+    
+    func resetTextFields() {
+        for textField in answerTextFieldsCollection {
+            textField.textColor = UIColor.black
+            textField.backgroundColor = UIColor.white
         }
     }
     
@@ -54,7 +70,10 @@ class ViewController: UIViewController {
         var currentWordIndex = counter - LABEL_NUM
         print("current index \(currentWordIndex)")
         for textField in answerTextFieldsCollection {
-            if textField.text == words[currentWordIndex] {
+            if (textField.text?.isEmpty)! {
+                textField.backgroundColor = UIColor.darkGray
+            }
+            else if textField.text == words[currentWordIndex] {
                 textField.textColor = UIColor.green
             } else {
                 textField.textColor = UIColor.red

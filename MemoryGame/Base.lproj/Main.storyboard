@@ -148,11 +148,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umk-p9-gbz">
+                                <rect key="frame" x="216" y="617" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="nextQuestionBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAz-Hd-hdB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="nextQuestionBtn" destination="Umk-p9-gbz" id="fSk-7O-tFg"/>
+                        <outlet property="startGameButton" destination="8zU-zl-hie" id="gM6-rz-ag5"/>
                         <outletCollection property="wordLabelsCollection" destination="VcQ-kJ-1ZX" collectionClass="NSMutableArray" id="63N-TG-ezx"/>
                         <outletCollection property="wordLabelsCollection" destination="jzk-Zj-Zxf" collectionClass="NSMutableArray" id="btZ-uk-bV7"/>
                         <outletCollection property="wordLabelsCollection" destination="TgO-px-F1B" collectionClass="NSMutableArray" id="xVg-ip-rYL"/>
