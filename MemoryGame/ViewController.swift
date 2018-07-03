@@ -18,6 +18,12 @@ class ViewController: UIViewController {
     private let LABEL_NUM = 7
     private let words = Words().words
     private var counter = 0
+    
+    enum Answer {
+        case Correct
+        case Wrong
+        case Blank
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,18 +90,27 @@ class ViewController: UIViewController {
         print("current index \(currentWordIndex)")
         for textField in answerTextFieldsCollection {
             if (textField.text?.isEmpty)! {
-                textField.backgroundColor = UIColor.darkGray
+                displayAnswerCorrectness(textField, answer: .Blank)
             }
             else if textField.text == words[currentWordIndex] {
-                textField.textColor = UIColor.green
+                displayAnswerCorrectness(textField, answer: .Correct)
             } else {
-                textField.textColor = UIColor.red
+                displayAnswerCorrectness(textField, answer: .Wrong)
             }
             currentWordIndex += 1
             
         }
     }
     
+    func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
+        if answer == Answer.Correct {
+            textField.textColor = UIColor.green
+        } else if answer == Answer.Wrong {
+            textField.textColor = UIColor.red
+        } else {
+            textField.backgroundColor = UIColor.darkGray
+        }
+    }
     func changeLabelHiddenStatus(hidden: Bool) {
         for label in wordLabelsCollection {
             label.isHidden = hidden
