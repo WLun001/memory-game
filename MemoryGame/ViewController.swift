@@ -60,11 +60,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func newGameBtnPressed(_ sender: UIButton) {
-        progress = 1
-        initLabels(questionSet: .Set1)
-        resetTextFields()
-        startGameButton.isHidden = false
-        changeTextFieldEnableStatus(enable: false)
+        newGame()
     }
     
     @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
@@ -151,10 +147,21 @@ class ViewController: UIViewController {
         let alertController = UIAlertController(
             title:"Game finished",message:"Congratulations! You have completed the game",preferredStyle:UIAlertControllerStyle.alert)
         let cancelAction = UIAlertAction( title:"Cancel",style:UIAlertActionStyle.cancel, handler:nil)
-        let restartAction = UIAlertAction( title:"Play Again",style:UIAlertActionStyle.default, handler:nil)
+        let restartAction = UIAlertAction( title:"Play Again",style:UIAlertActionStyle.default){ (uiAlertAction) in
+            self.newGame()
+        }
         alertController.addAction(cancelAction)
         alertController.addAction(restartAction)
         self.present(alertController, animated: true, completion:nil)
+    }
+    
+    func newGame() {
+        progress = 1
+        updateGameProgress(value: progress)
+        initLabels(questionSet: .Set1)
+        resetTextFields()
+        startGameButton.isHidden = false
+        changeTextFieldEnableStatus(enable: false)
     }
     
     func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
