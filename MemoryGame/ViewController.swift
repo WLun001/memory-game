@@ -49,10 +49,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func startGameBtnPressed(_ sender: UIButton) {
-        startGameButton.isHidden = true
-        changeLabelHiddenStatus(hidden: true)
-        changeTextFieldEnableStatus(enable: true)
-        changeButtonCollectionHiddenStatus(hidden: false)
+        gameMode(on: true)
     }
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
@@ -80,10 +77,7 @@ class ViewController: UIViewController {
             initLabels(questionSet: selectNextQuestion())
             nextQuestionBtn.isHidden = true
             resetTextFields()
-            changeLabelHiddenStatus(hidden: false)
-            startGameButton.isHidden = false
-            changeTextFieldEnableStatus(enable: false)
-            changeButtonCollectionHiddenStatus(hidden: true)
+            gameMode(on: false)
             progress += 1
             updateGameProgress(value: progress)
         }
@@ -159,6 +153,13 @@ class ViewController: UIViewController {
         alertController.addAction(cancelAction)
         alertController.addAction(restartAction)
         self.present(alertController, animated: true, completion:nil)
+    }
+    
+    func gameMode(on: Bool) {
+        startGameButton.isHidden = on
+        changeLabelHiddenStatus(hidden: on)
+        changeTextFieldEnableStatus(enable: on)
+        changeButtonCollectionHiddenStatus(hidden: !on)
     }
     
     func newGame() {
