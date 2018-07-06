@@ -60,6 +60,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func newGameBtnPressed(_ sender: UIButton) {
+        progress = 1
         initLabels(questionSet: .Set1)
         resetTextFields()
         startGameButton.isHidden = false
@@ -71,15 +72,17 @@ class ViewController: UIViewController {
         changeTextFieldEnableStatus(enable: false)
         nextQuestionBtn.isHidden = false
         if progress == 5 {
+            nextQuestionBtn.isHidden = true
             showAlert()
         }
     }
     @IBAction func nextQuestionBtnPressed(_ sender: UIButton) {
+        print("progress: \(progress)")
         if progress < 5 {
             initLabels(questionSet: selectNextQuestion())
-            nextQuestionBtn.isHidden = false
+            nextQuestionBtn.isHidden = true
             resetTextFields()
-            progress += progress
+            progress += 1
             updateGameProgress(value: progress)
         }
         
