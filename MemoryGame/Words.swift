@@ -13,13 +13,13 @@ class Words {
     
     init() {
         words = [
-            "awkwardish",
-            "carbonado",
-            "chamaephyte",
-            "chroococcaceous",
-            "coracoscapular",
-            "counterborder",
-            "dialogize",
+            "Johor",
+            "Kelantan",
+            "Selangor",
+            "Kedah",
+            "Pahang",
+            "Perak",
+            "Sabah",
             "diluvia",
             "economise",
             "gnast",

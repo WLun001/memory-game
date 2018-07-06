@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet var progressBar: UIView!
     @IBOutlet var wordLabelsCollection: [UILabel]!
     @IBOutlet var answerTextFieldsCollection: [UITextField]!
     @IBOutlet weak var startGameButton: UIButton!
@@ -18,18 +20,27 @@ class ViewController: UIViewController {
     private let LABEL_NUM = 7
     private let words = Words().words
     private var counter = 0
+    private var progress = 1
     
     enum Answer {
         case Correct
         case Wrong
         case Blank
     }
+    
+    enum QuestionSet: Int {
+        case Set1 = 0
+        case Set2 = 7
+        case Set3 = 14
+        case Set4 = 21
+        case Set5 = 28
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        initLabels()
+        initLabels(questionSet: .Set1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +60,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func newGameBtnPressed(_ sender: UIButton) {
-        initLabels()
+        initLabels(questionSet: .Set1)
         resetTextFields()
         startGameButton.isHidden = false
         changeTextFieldEnableStatus(enable: false)
@@ -59,11 +70,22 @@ class ViewController: UIViewController {
         checkAnswer()
         changeTextFieldEnableStatus(enable: false)
         nextQuestionBtn.isHidden = false
+        if progress == 5 {
+            showAlert()
+        }
     }
     @IBAction func nextQuestionBtnPressed(_ sender: UIButton) {
+        if progress < 5 {
+            initLabels(questionSet: selectNextQuestion())
+            nextQuestionBtn.isHidden = false
+            resetTextFields()
+            progress += progress
+            updateGameProgress(value: progress)
+        }
+        
     }
-    func initLabels() {
-        counter = 0
+    func initLabels(questionSet: QuestionSet) {
+        counter = questionSet.rawValue
         for label in wordLabelsCollection {
             label.text = words[counter]
             counter += 1
@@ -98,8 +120,38 @@ class ViewController: UIViewController {
                 displayAnswerCorrectness(textField, answer: .Wrong)
             }
             currentWordIndex += 1
-            
         }
+    }
+    
+    func selectNextQuestion() -> QuestionSet {
+        switch counter {
+        case 0...6:
+            return QuestionSet.Set1
+        case 7...13:
+            return QuestionSet.Set2
+        case 14...20:
+            return QuestionSet.Set3
+        case 21...27:
+            return QuestionSet.Set4
+        case 28...34:
+            return QuestionSet.Set5
+        default:
+            return QuestionSet.Set1
+        }
+    }
+    
+    func updateGameProgress(value: Int) {
+        progressLabel.text = "\(value)/5"
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(
+            title:"Game finished",message:"Congratulations! You have completed the game",preferredStyle:UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction( title:"Cancel",style:UIAlertActionStyle.cancel, handler:nil)
+        let restartAction = UIAlertAction( title:"Play Again",style:UIAlertActionStyle.default, handler:nil)
+        alertController.addAction(cancelAction)
+        alertController.addAction(restartAction)
+        self.present(alertController, animated: true, completion:nil)
     }
     
     func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
@@ -116,7 +168,5 @@ class ViewController: UIViewController {
             label.isHidden = hidden
         }
     }
-
-
 }
 
