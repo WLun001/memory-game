@@ -75,7 +75,7 @@
                                     <action selector="startGameBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZeQ-Sv-hjG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2p-v5-ggE">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2p-v5-ggE">
                                 <rect key="frame" x="47" y="523" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Give Up"/>
@@ -83,7 +83,7 @@
                                     <action selector="giveUpBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fen-2K-9Zh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-WV-kEe">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-WV-kEe">
                                 <rect key="frame" x="225" y="477" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New Game"/>
@@ -91,7 +91,7 @@
                                     <action selector="newGameBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFK-gd-49J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-Hr-pGz">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-Hr-pGz">
                                 <rect key="frame" x="204" y="523" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit Answer"/>
@@ -191,6 +191,9 @@
                         <outletCollection property="answerTextFieldsCollection" destination="yV2-nz-4V7" collectionClass="NSMutableArray" id="G1A-On-qzi"/>
                         <outletCollection property="answerTextFieldsCollection" destination="MbN-3e-XTA" collectionClass="NSMutableArray" id="ow6-4M-TFN"/>
                         <outletCollection property="answerTextFieldsCollection" destination="ZEE-jE-JUM" collectionClass="NSMutableArray" id="riF-Wt-UZz"/>
+                        <outletCollection property="gameStartButtonCollection" destination="Q2p-v5-ggE" collectionClass="NSMutableArray" id="KSb-Xo-3de"/>
+                        <outletCollection property="gameStartButtonCollection" destination="a9m-WV-kEe" collectionClass="NSMutableArray" id="iyz-6h-8hb"/>
+                        <outletCollection property="gameStartButtonCollection" destination="ecq-Hr-pGz" collectionClass="NSMutableArray" id="Llz-CE-Nr1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var progressBar: UIView!
     @IBOutlet var wordLabelsCollection: [UILabel]!
     @IBOutlet var answerTextFieldsCollection: [UITextField]!
+    @IBOutlet var gameStartButtonCollection: [UIButton]!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var nextQuestionBtn: UIButton!
     
@@ -51,6 +52,8 @@ class ViewController: UIViewController {
         changeLabelHiddenStatus(hidden: true)
         startGameButton.isHidden = true
         changeTextFieldEnableStatus(enable: true)
+        changeButtonCollectionHiddenStatus(hidden: false)
+        
     }
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
@@ -76,6 +79,7 @@ class ViewController: UIViewController {
         print("progress: \(progress)")
         if progress < 5 {
             initLabels(questionSet: selectNextQuestion())
+            changeLabelHiddenStatus(hidden: false)
             nextQuestionBtn.isHidden = true
             resetTextFields()
             progress += 1
@@ -159,9 +163,11 @@ class ViewController: UIViewController {
         progress = 1
         updateGameProgress(value: progress)
         initLabels(questionSet: .Set1)
+        changeLabelHiddenStatus(hidden: false)
         resetTextFields()
         startGameButton.isHidden = false
         changeTextFieldEnableStatus(enable: false)
+        changeButtonCollectionHiddenStatus(hidden: true)
     }
     
     func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
@@ -176,6 +182,12 @@ class ViewController: UIViewController {
     func changeLabelHiddenStatus(hidden: Bool) {
         for label in wordLabelsCollection {
             label.isHidden = hidden
+        }
+    }
+    
+    func changeButtonCollectionHiddenStatus(hidden: Bool) {
+        for button in gameStartButtonCollection {
+            button.isHidden = hidden
         }
     }
 }
