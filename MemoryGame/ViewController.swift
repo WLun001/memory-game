@@ -72,7 +72,6 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func nextQuestionBtnPressed(_ sender: UIButton) {
-        print("progress: \(progress)")
         if progress < 5 {
             initLabels(questionSet: selectNextQuestion())
             nextQuestionBtn.isHidden = true
@@ -106,9 +105,7 @@ class ViewController: UIViewController {
     }
     
     func checkAnswer() {
-        print("counter \(counter)")
         var currentWordIndex = counter - LABEL_NUM
-        print("current index \(currentWordIndex)")
         for textField in answerTextFieldsCollection {
             if (textField.text?.isEmpty)! {
                 displayAnswerCorrectness(textField, answer: .Blank)
