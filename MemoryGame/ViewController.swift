@@ -49,11 +49,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func startGameBtnPressed(_ sender: UIButton) {
-        changeLabelHiddenStatus(hidden: true)
-        startGameButton.isHidden = true
-        changeTextFieldEnableStatus(enable: true)
-        changeButtonCollectionHiddenStatus(hidden: false)
-        
+        gameMode()
     }
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
@@ -79,11 +75,11 @@ class ViewController: UIViewController {
         print("progress: \(progress)")
         if progress < 5 {
             initLabels(questionSet: selectNextQuestion())
-            changeLabelHiddenStatus(hidden: false)
             nextQuestionBtn.isHidden = true
             resetTextFields()
             progress += 1
             updateGameProgress(value: progress)
+            gameMode()
         }
         
     }
@@ -168,6 +164,13 @@ class ViewController: UIViewController {
         startGameButton.isHidden = false
         changeTextFieldEnableStatus(enable: false)
         changeButtonCollectionHiddenStatus(hidden: true)
+    }
+    
+    func gameMode() {
+        changeLabelHiddenStatus(hidden: true)
+        startGameButton.isHidden = true
+        changeTextFieldEnableStatus(enable: true)
+        changeButtonCollectionHiddenStatus(hidden: false)
     }
     
     func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
