@@ -78,7 +78,7 @@ class ViewController: UIViewController {
             resetTextFields()
             gameMode(on: false)
             progress += 1
-            updateGameProgress(value: progress)
+            updateGameProgressLabel(value: progress)
         }
         
     }
@@ -104,6 +104,18 @@ class ViewController: UIViewController {
         }
     }
     
+    func changeLabelHiddenStatus(hidden: Bool) {
+        for label in wordLabelsCollection {
+            label.isHidden = hidden
+        }
+    }
+    
+    func changeButtonCollectionHiddenStatus(hidden: Bool) {
+        for button in gameStartButtonCollection {
+            button.isHidden = hidden
+        }
+    }
+    
     func checkAnswer() {
         var currentWordIndex = counter - LABEL_NUM
         for textField in answerTextFieldsCollection {
@@ -116,6 +128,16 @@ class ViewController: UIViewController {
                 displayAnswerCorrectness(textField, answer: .Wrong)
             }
             currentWordIndex += 1
+        }
+    }
+    
+    func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
+        if answer == Answer.Correct {
+            textField.textColor = UIColor.green
+        } else if answer == Answer.Wrong {
+            textField.textColor = UIColor.red
+        } else {
+            textField.backgroundColor = UIColor.darkGray
         }
     }
     
@@ -136,7 +158,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateGameProgress(value: Int) {
+    func updateGameProgressLabel(value: Int) {
         progressLabel.text = "\(value)/5"
     }
     
@@ -161,7 +183,7 @@ class ViewController: UIViewController {
     
     func newGame() {
         progress = 1
-        updateGameProgress(value: progress)
+        updateGameProgressLabel(value: progress)
         initLabels(questionSet: .Set1)
         changeLabelHiddenStatus(hidden: false)
         resetTextFields()
@@ -169,27 +191,6 @@ class ViewController: UIViewController {
         changeTextFieldEnableStatus(enable: false)
         changeButtonCollectionHiddenStatus(hidden: true)
         nextQuestionBtn.isHidden = true
-    }
-    
-    func displayAnswerCorrectness(_ textField: UITextField, answer: Answer) {
-        if answer == Answer.Correct {
-            textField.textColor = UIColor.green
-        } else if answer == Answer.Wrong {
-            textField.textColor = UIColor.red
-        } else {
-            textField.backgroundColor = UIColor.darkGray
-        }
-    }
-    func changeLabelHiddenStatus(hidden: Bool) {
-        for label in wordLabelsCollection {
-            label.isHidden = hidden
-        }
-    }
-    
-    func changeButtonCollectionHiddenStatus(hidden: Bool) {
-        for button in gameStartButtonCollection {
-            button.isHidden = hidden
-        }
     }
 }
 
