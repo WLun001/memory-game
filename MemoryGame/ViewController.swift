@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         gameMode(on: true)
     }
     
-    @IBAction func giveUpBtnPressed(_ sender: UIButton) {
+    @IBAction func showWordsBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: false)
         changeTextFieldEnableStatus(enable: false)
     }
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         newGame()
     }
     
-    @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
+    @IBAction func showWordsBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: false)
         checkAnswer()
         changeTextFieldEnableStatus(enable: false)
