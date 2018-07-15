@@ -71,6 +71,7 @@ class ViewController: UIViewController {
             showAlert()
         }
     }
+    
     @IBAction func nextQuestionBtnPressed(_ sender: UIButton) {
         if progress < 5 {
             initLabels(questionSet: selectNextQuestion())
@@ -80,8 +81,8 @@ class ViewController: UIViewController {
             progress += 1
             updateGameProgressLabel(value: progress)
         }
-        
     }
+    
     func initLabels(questionSet: QuestionSet) {
         counter = questionSet.rawValue
         for label in wordLabelsCollection {
@@ -195,4 +196,3 @@ class ViewController: UIViewController {
         nextQuestionBtn.isHidden = true
     }
 }
-
