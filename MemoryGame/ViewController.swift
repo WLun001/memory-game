@@ -54,7 +54,6 @@ class ViewController: UIViewController {
     
     @IBAction func giveUpBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: false)
-        checkAnswer()
         changeTextFieldEnableStatus(enable: false)
     }
     
@@ -63,6 +62,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func submitAnswerBtnPressed(_ sender: UIButton) {
+        changeLabelHiddenStatus(hidden: false)
         checkAnswer()
         changeTextFieldEnableStatus(enable: false)
         nextQuestionBtn.isHidden = false
