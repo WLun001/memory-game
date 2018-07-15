@@ -73,15 +73,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show Words"/>
                                 <connections>
-                                    <action selector="showWordsBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fen-2K-9Zh"/>
+                                    <action selector="showWordsBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wmx-xn-VHr"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-WV-kEe">
-                                <rect key="frame" x="225" y="477" width="75" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-Hr-pGz">
+                                <rect key="frame" x="225" y="523" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New Game"/>
+                                <state key="normal" title="Check Words"/>
                                 <connections>
-                                    <action selector="newGameBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFK-gd-49J"/>
+                                    <action selector="checkWordsBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFU-Oc-CA7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2vp-vU-6oe" userLabel="TextField1">
@@ -134,7 +134,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umk-p9-gbz">
-                                <rect key="frame" x="225" y="561" width="98" height="30"/>
+                                <rect key="frame" x="225" y="561" width="98" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next Question"/>
                                 <connections>
@@ -160,12 +160,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-Hr-pGz">
-                                <rect key="frame" x="225" y="523" width="86" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-WV-kEe">
+                                <rect key="frame" x="225" y="477" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show Words"/>
+                                <state key="normal" title="New Game"/>
                                 <connections>
-                                    <action selector="showWordsBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZm-Np-mTR"/>
+                                    <action selector="newGameBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UFK-gd-49J"/>
                                 </connections>
                             </button>
                         </subviews>

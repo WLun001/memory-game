@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         newGame()
     }
     
-    @IBAction func showWordsBtnPressed(_ sender: UIButton) {
+    @IBAction func checkWordsBtnPressed(_ sender: UIButton) {
         changeLabelHiddenStatus(hidden: false)
         checkAnswer()
         changeTextFieldEnableStatus(enable: false)
