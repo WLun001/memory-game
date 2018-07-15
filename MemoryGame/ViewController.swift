@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var progressLabel: UILabel!
-    @IBOutlet var progressBar: UIView!
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet var wordLabelsCollection: [UILabel]!
     @IBOutlet var answerTextFieldsCollection: [UITextField]!
     @IBOutlet var gameStartButtonCollection: [UIButton]!
@@ -160,6 +160,8 @@ class ViewController: UIViewController {
     
     func updateGameProgressLabel(value: Int) {
         progressLabel.text = "\(value)/5"
+        // max progress is 1, each increment is 0.2, so times by 0.2
+        progressBar.progress = Float(Double(value) * 0.2)
     }
     
     func showAlert() {
