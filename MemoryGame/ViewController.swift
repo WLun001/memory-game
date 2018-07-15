@@ -122,7 +122,7 @@ class ViewController: UIViewController {
             if (textField.text?.isEmpty)! {
                 displayAnswerCorrectness(textField, answer: .Blank)
             }
-            else if textField.text == words[currentWordIndex] {
+            else if textField.text?.caseInsensitiveCompare(words[currentWordIndex]) == .orderedSame {
                 displayAnswerCorrectness(textField, answer: .Correct)
             } else {
                 displayAnswerCorrectness(textField, answer: .Wrong)
